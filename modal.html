@@ -4,53 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./js/modal.js">
     <title> 모달창 만들기 </title>
     <style>
-        .modalConcept{
-            position: fixed; left: 0; top: 0;
-            z-index: 100;
-            width: 100%; height: 100vh;
-            overflow: scroll;
-            background-color: rgba(0, 0, 0, 0.418);
-            display: none;
-        }
-        .modal-content{
-            margin: 30px auto;
-            width: 50%;
-            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
-            animation: modalopen 1s; 
-        }
 
-        @keyframes modalopen {
-            0%{ opacity: 0;}
-            100%{ opacity: 1;}
-        }
-        .modal-header{
-            background: #000;
-            color: #fff; padding: 10px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-        }
-        .modal-body{
-            padding: 10px 20px;
-            background: #fff; height: 100%;
-            overflow: auto;
-            text-align: center;
-        }
-        .modal-footer{
-            background: #000; padding: 10px;
-            text-align: center;
-            border-bottom-left-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-        .closeBtn{
-            width: 120px; height: 30px;
-            background: #fff;;
-        }
-        .close{
-            float: right;
-            line-height: 30px; font-size: 30px;
-        }
     </style>
 </head>
 <body>
@@ -100,43 +58,7 @@
     </div>
     </div>
 
-    <script>
-        //모달
-        const modal = document.querySelector("#my-modal");
-        const modalBtn = document.querySelector("#modal-btn");
-        const closeBtn01 = document.querySelector(".close");
-        const closeBtn02 = document.querySelector(".closeBtn");
-        const modalContent = document.querySelector(".modal-content");
-
-        //event
-        modalBtn.addEventListener('click',openModal);
-        closeBtn01.addEventListener('click', closeModal);
-        closeBtn02.addEventListener('click', closeModal);
-        //번외
-        window.addEventListener('click',outsideClick);
-
-        function openModal(){
-            modal.style.display = 'block';
-
-            //위치값으로 올라가게 하기위해
-            // var Modaloffset = $('#my-modal').offset();
-            var startModal = $('#start-modal').offset();
-
-            $('html').animate({scrollTop:startModal.top},400);
-            document.body.overflow = 'hidden'; //움직이지 않게
-        }
-        function closeModal(){
-            modal.style.display = 'none';
-            document.body.overflow = 'unset';
-        }
-
-        function outsideClick(e){
-            if(e.target == modal){
-                modal.style.display = 'none';
-                document.body.style.overflow = 'unset';
-            }
-        }
-
+    <script type="text/javascript" src="./js/modal.js">
     </script>
 </body>
 </html>
